@@ -15,7 +15,6 @@
 
 const fs = require("fs-extra")
 const { join } = require("path")
-const { array, element } = require("prop-types")
 const uniqid = require("uniqid")
 const dbPath = join(__dirname, "../../../db")
 const tables = ["movies.json", "reviews.json"]
@@ -279,7 +278,7 @@ const linkArrayFile = async (Table, value, field, url, urlField) => {
 		//table = {}
 	}
 	try {
-		exists = checkExistanceInArray(Table, field, array)
+		exists = checkExistanceInArray(Table, field, value)
 		if (!exists) {
 			throw new Error("not found")
 		}
